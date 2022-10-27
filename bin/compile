@@ -70,7 +70,7 @@ if [ -e $BUILD_DIR/.hugotheme ]; then
   THEME_NAME="`sed '2!d' $BUILD_DIR/.hugotheme`"
   rm -rf $BUILD_DIR/themes && mkdir $BUILD_DIR/themes && cd $BUILD_DIR/themes
   git clone $THEME_URL $BUILD_DIR/themes/$THEME_NAME
-  ls -la $BUILD_DIR/themes/ananke
+  # ls -la $BUILD_DIR/themes/ananke
 fi
 
 # Build the site
