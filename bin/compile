@@ -65,9 +65,11 @@ fi
 # Fetch a theme specified in the .hugotheme file
 if [ -e $BUILD_DIR/.hugotheme ]; then
   echo "\n-----> Getting the theme"
-  THEME_URL="`cat $BUILD_DIR/.hugotheme`"
+ # THEME_URL="`cat $BUILD_DIR/.hugotheme`"
+  THEME_URL="`sed '1!d' .hugotheme`"
+  THEME_NAME="`sed '2!d' .hugotheme`"
   rm -rf $BUILD_DIR/themes && mkdir $BUILD_DIR/themes && cd $BUILD_DIR/themes
-  git clone $THEME_URL $BUILD_DIR/themes/ananke
+  git clone $THEME_URL $BUILD_DIR/themes/$THEME_NAME
   ls -la $BUILD_DIR/themes/ananke
 fi
 
